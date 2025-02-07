@@ -11,10 +11,43 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
   int _counter = 0;
 
   void _incrementCounter() => setState(() => _counter++);
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.detached:
+        // TODO: Handle this case.
+        throw UnimplementedError();
+      case AppLifecycleState.resumed:
+        // TODO: Handle this case.
+        throw UnimplementedError();
+      case AppLifecycleState.inactive:
+        // TODO: Handle this case.
+        throw UnimplementedError();
+      case AppLifecycleState.hidden:
+        // TODO: Handle this case.
+        throw UnimplementedError();
+      case AppLifecycleState.paused:
+        // TODO: Handle this case.
+        throw UnimplementedError();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
