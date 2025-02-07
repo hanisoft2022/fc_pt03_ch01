@@ -1,0 +1,1 @@
+vscode에서 InfoPliststrings 파일 생성 및 로컬라이즈를 할 수는 없어?
